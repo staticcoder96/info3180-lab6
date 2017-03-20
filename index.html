@@ -3,20 +3,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <body>
+    <h1> You Can Add or Remove Items From This List:) </h1>
     <script>
-        var app = angular.module("myList", []);
+        var app = angular.module("GroceryList", []);
         app.controller("Ctrl",function($scope){
-            $scope.products = ["Snacks", "Jasmine Rice, Boneless Skinless Thighs"];
-            
+            $scope.products = ["Snacks", "Jasmine Rice", "Boneless Skinless Thighs"];
+            $scope.addItem = function(){
+                $scope.products.push($scope.addMe)
+            }
         });
     </script>
     
-    <div ng-app="myList" ng-controller="Ctrl">
+    <div ng-app="GroceryList" ng-controller="Ctrl">
         <ul>
             <li ng-repeat="x in products">{{x}}</li>
         </ul>
+        <input ng-model="addMe" class="addMe">
+        <button ng-click="addItem()"> Add To List </button>
     </div>
     
 </body>
+
+<style type="text/css">
+    .addMe{
+        background-color: #F5F5DC;
+    }
+</style>
 </html>
 
