@@ -7,7 +7,7 @@
     <script>
         var app = angular.module("GroceryList", []);
         app.controller("Ctrl",function($scope){
-            $scope.products = ["Snacks", "Jasmine Rice", "Boneless Skinless Thighs"];
+            $scope.products = ["Snacks", "Jasmine Rice", "Boneless Skinless Chicken Thighs"];
             
             $scope.addItem = function(){
                 $scope.errortext = "";
@@ -26,22 +26,39 @@
     </script>
     
     <div ng-app="GroceryList" ng-controller="Ctrl">
-        <ul>
+        <ul class="items">
             <li ng-repeat="x in products">
-                {{x}}
+                <p> {{x}} </p>
                 <span ng-click="removeItem($index)">&times;</span>
             </li>
         </ul>
-        <input ng-model="addMe" class="addMe">
-        <button ng-click="addItem()"> Add To List </button>
-          <p>{{errortext}}</p>
+        <input placeholder="Enter the Items to be Added" ng-model="addMe" class="addMe">
+        <button class="but" ng-click="addItem()"> Add To List </button>
+          <p class="error">{{errortext}}</p>
     </div>
     
 </body>
 
 <style type="text/css">
+    h1{
+        text-align:center;
+    }
     .addMe{
         background-color: #F5F5DC;
+    }
+    .error{
+        color:red;
+        font-family:"Serif";
+    }
+    .items{
+        text-align:center;
+        color:	#0000FF;
+        font-style: italic;
+    }
+    .but{
+        
+         justify-content: center; 
+         background-color:green;
     }
 </style>
 </html>
